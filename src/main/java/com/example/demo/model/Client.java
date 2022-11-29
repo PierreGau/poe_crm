@@ -32,7 +32,7 @@ public class Client
 	@Column(name="phone")
 	private String phone;
 	
-	@Column(name="address", columnDefinition = "LONGTEXT")
+	@Column(columnDefinition = "LONGTEXT")
 	@Type(type = "text")
 	private String address;
 	
