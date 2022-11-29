@@ -36,9 +36,9 @@ public class ClientDirectory
 	}
 	
 	/**Renvoie true si l'id existait*/
-	public boolean deleteClient(int _id)
+	public boolean deleteClient(Long _id)
 	{
-		boolean b = cr.existsById(Long.valueOf(_id));
+		boolean b = cr.existsById(_id);
 		if(b)
 			cr.deleteById(Long.valueOf(_id));
 		return b;
@@ -48,7 +48,7 @@ public class ClientDirectory
 	/**Renvoie true si l'id existait*/
 	public boolean updateClient(Client client)
 	{
-		boolean b = cr.existsById(Long.valueOf(client.getId()));
+		boolean b = cr.existsById(client.getId());
 		if(b)
 			cr.save(client);
 		

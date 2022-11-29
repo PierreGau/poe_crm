@@ -13,7 +13,8 @@ import javax.persistence.Table;
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Column(columnDefinition = "int")
+	private Long id;
 
 	@ManyToOne
 	private Client client;
@@ -62,7 +63,7 @@ public class Order {
 
 
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -80,7 +81,7 @@ public class Order {
 
 
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
