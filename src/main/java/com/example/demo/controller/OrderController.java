@@ -26,13 +26,13 @@ public class OrderController
 	OrderDirectory orderDirectory;
 	
 	@GetMapping("orders")
-	public List<Order> getClients()
+	public List<Order> getOrders()
 	{
 		return orderDirectory.getOrders();
 	}
 	
 	@GetMapping("order/{id}")
-	public ResponseEntity<Order> getClient(@PathVariable("id")Long _id)
+	public ResponseEntity<Order> getOrder(@PathVariable("id")Long _id)
 	{		
 		Optional<Order> o = orderDirectory.getOrder(_id);
 		
@@ -61,7 +61,7 @@ public class OrderController
 	}
 	
 	@PutMapping("order/{id}")
-	public ResponseEntity<Client> updateClient(@RequestBody Order order, @PathVariable("id") Long id)
+	public ResponseEntity<Client> updateOrder(@RequestBody Order order, @PathVariable("id") Long id)
 	{	
 		if(order.getId().equals(id))
 		{
