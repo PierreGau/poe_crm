@@ -1,6 +1,13 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="clients")
@@ -8,7 +15,7 @@ public class Client
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name="company_name")
 	private String compagnyName;
@@ -25,7 +32,8 @@ public class Client
 	@Column(name="phone")
 	private String phone;
 	
-	@Column(name="address")
+	@Column(name="address", columnDefinition = "LONGTEXT")
+	@Type(type = "text")
 	private String address;
 	
 	@Column(name="zip_code")
@@ -59,11 +67,11 @@ public class Client
 
 	
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
