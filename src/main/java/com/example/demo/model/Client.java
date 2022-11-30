@@ -2,12 +2,15 @@ package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+
+import com.example.demo.states.ClientState;
 
 @Entity
 @Table(name="clients")
@@ -45,15 +48,15 @@ public class Client
 	
 	@Column(name="country")
 	private String country;
-	
-	@Column(name="state")
-	private boolean state;
+
+	@Column(name="state", columnDefinition = "BIT")
+	private ClientState state;
 
 	public Client() {
 	}
 
 	public Client(String compagnyName, String firstName, String lastName, String email, String phone, String address,
-			String zipCode, String city, String country, boolean state) {
+			String zipCode, String city, String country, ClientState state) {
 		this.compagnyName = compagnyName;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -148,11 +151,11 @@ public class Client
 		this.country = country;
 	}
 
-	public boolean isState() {
+	public ClientState getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(ClientState state) {
 		this.state = state;
 	}
 
